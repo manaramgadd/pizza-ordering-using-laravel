@@ -10,7 +10,7 @@ class PizzaController extends Controller
 
   public function index() {
     // get data from a database
-    $pizza = Pizza::all(); 
+    $pizza = Pizza::latest()->get(); 
 
     return view('pizza.index', [
       'pizza' => $pizza,
@@ -20,7 +20,8 @@ class PizzaController extends Controller
 
   public function show($id) {
     // use the $id variable to query the db for a record
-    return view('pizza.show', ['id' => $id]);
+    $pizza = Pizza::findOrFail($id);
+    return view('pizza.show', ['pizza' => $pizza]);
   }
   public function create(){
     return view('pizza.create');
