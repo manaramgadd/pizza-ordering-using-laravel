@@ -23,7 +23,10 @@ Route::get('/', function () {
   
   // pizza routes
   Route::get('/pizza', 'App\Http\Controllers\PizzaController@index');
+  Route::get('/pizza/create', 'App\Http\Controllers\PizzaController@create');
   Route::get('/pizza/{id}', 'App\Http\Controllers\PizzaController@show');
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

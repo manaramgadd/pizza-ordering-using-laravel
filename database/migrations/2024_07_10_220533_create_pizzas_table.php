@@ -11,12 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pizza', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('pizzas', function (Blueprint $table) {
+            $table->id();
             $table->timestamps();
             $table->string('type');
             $table->string('base');
             $table->string('name');
+
+
+            
         });
     }
 
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pizza');
+        Schema::dropIfExists('pizzas');
     }
 };
