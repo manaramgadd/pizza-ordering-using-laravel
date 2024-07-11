@@ -22,11 +22,11 @@ Route::get('/', function () {
   });
   
   // pizza routes
-  Route::get('/pizza', 'App\Http\Controllers\PizzaController@index');
+  Route::get('/pizza', 'App\Http\Controllers\PizzaController@index')->middleware('auth');
   Route::get('/pizza/create', 'App\Http\Controllers\PizzaController@create');
-  Route::get('/pizza/{id}', 'App\Http\Controllers\PizzaController@show');
+  Route::get('/pizza/{id}', 'App\Http\Controllers\PizzaController@show')->middleware('auth');
   Route::post('/pizza','App\Http\Controllers\PizzaController@store');
-  Route::delete('/pizza/{id}','App\Http\Controllers\PizzaController@destroy');
+  Route::delete('/pizza/{id}','App\Http\Controllers\PizzaController@destroy')->middleware('auth');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
