@@ -25,8 +25,8 @@ Route::get('/', function () {
   Route::get('/pizza', 'App\Http\Controllers\PizzaController@index');
   Route::get('/pizza/create', 'App\Http\Controllers\PizzaController@create');
   Route::get('/pizza/{id}', 'App\Http\Controllers\PizzaController@show');
-
-
+  Route::post('/pizza','App\Http\Controllers\PizzaController@store');
+  Route::delete('/pizza/{id}','App\Http\Controllers\PizzaController@destroy');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

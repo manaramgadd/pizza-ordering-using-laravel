@@ -6,6 +6,7 @@
 
 <h1>Create a new Pizza</h1>
 <form action="/pizza" method="POST">
+    @csrf 
     <label for="name">Your name:</label>
     <input type="text" is="name" name="name">
     <label for="type">Choose Type:</label>
@@ -24,6 +25,12 @@
         <option value="thick">thick</option>
 
     </select>
+    <fieldset>
+        <label>Extra Toppings</label>
+        <input type="checkbox" name='toppings[]'value="mushrooms">mushrooms<br />
+        <input type="checkbox" name='toppings[]'value="peppers">peppers<br />
+        <input type="checkbox" name='toppings[]'value="garlic">garlic<br />
+    </fieldset>
     <input type="submit"value="Order Pizza">
 
 </form>
